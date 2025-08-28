@@ -1,2 +1,2 @@
-# React + TypeScript + Vite
+# React + TypeScript + Vite + shadcn/ui
  
