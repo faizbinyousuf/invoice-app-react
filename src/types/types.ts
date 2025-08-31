@@ -5,4 +5,5 @@ export interface Invoice {
   client: string;
   amount: number;
   status: string;
+  description: string;
 }

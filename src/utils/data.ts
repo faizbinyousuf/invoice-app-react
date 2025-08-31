@@ -8,6 +8,7 @@ const invoices: Invoice[] = [
     client: "John Doe",
     amount: 100,
     status: "draft",
+    description: "Graphic Design",
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ const invoices: Invoice[] = [
     client: "Jane Doe",
     amount: 200,
     status: "pending",
+    description: "Web Development",
   },
   {
     id: 3,
@@ -24,6 +26,7 @@ const invoices: Invoice[] = [
     client: "Bob Smith",
     amount: 300,
     status: "paid",
+    description: "Software Development",
   },
   {
     id: 4,
@@ -32,6 +35,7 @@ const invoices: Invoice[] = [
     client: "Alice Johnson",
     amount: 400,
     status: "draft",
+    description: "Web Development",
   },
   {
     id: 5,
@@ -40,6 +44,7 @@ const invoices: Invoice[] = [
     client: "Charlie Brown",
     amount: 500,
     status: "pending",
+    description: "Graphic Design",
   },
   {
     id: 6,
@@ -48,6 +53,7 @@ const invoices: Invoice[] = [
     client: "Eve Green",
     amount: 600,
     status: "paid",
+    description: "Software Development",
   },
   {
     id: 7,
@@ -56,6 +62,7 @@ const invoices: Invoice[] = [
     client: "Frank White",
     amount: 700,
     status: "draft",
+    description: "UI/UX Design",
   },
   {
     id: 8,
@@ -64,6 +71,7 @@ const invoices: Invoice[] = [
     client: "Grace Blue",
     amount: 800,
     status: "pending",
+    description: "Mobile Development",
   },
   {
     id: 9,
@@ -72,6 +80,7 @@ const invoices: Invoice[] = [
     client: "Harry Red",
     amount: 900,
     status: "paid",
+    description: "Backend Development",
   },
   {
     id: 10,
@@ -80,6 +89,7 @@ const invoices: Invoice[] = [
     client: "Ivy Yellow",
     amount: 1000,
     status: "draft",
+    description: "Logo Design",
   },
   {
     id: 11,
@@ -88,6 +98,7 @@ const invoices: Invoice[] = [
     client: "Jack Green",
     amount: 1100,
     status: "pending",
+    description: "Frontend Development",
   },
   {
     id: 12,
@@ -96,6 +107,7 @@ const invoices: Invoice[] = [
     client: "Kate Blue",
     amount: 1200,
     status: "paid",
+    description: "Data Analysis",
   },
 ];
 export { invoices };
