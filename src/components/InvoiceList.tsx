@@ -82,7 +82,7 @@ function InvoiceList() {
             </SheetTrigger>
             <SheetContent
               side="left"
-              className="w-full sm:max-w-lg ml-0 lg:ml-24 p-0 mt-24   grid "
+              className="w-full sm:max-w-lg ml-0 lg:ml-24 p-0 mt-24 lg:mt-0  grid "
             >
               <div className="  overflow-y-auto p-6  ">
                 <SheetHeader className="p-0 m-0">
@@ -125,7 +125,6 @@ function InvoiceList() {
                     </Label>
                     <Input id="street-address-client" className="h-12" />
                   </div>
-
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                     <div className="grid gap-3">
                       <Label htmlFor="city-client">City</Label>
@@ -140,7 +139,6 @@ function InvoiceList() {
                       <Input id="country-client" className="h-12" />
                     </div>
                   </div>
-
                   <div className="flex justify-between items-center gap-3  ">
                     <div className="grid gap-3 flex-1">
                       <Label htmlFor="postcode-client">Invoice Date</Label>
@@ -192,7 +190,6 @@ function InvoiceList() {
                       </Select>
                     </div>
                   </div>
-
                   <div className="grid gap-3">
                     <Label htmlFor="project">Project Description</Label>
                     <Input id="project" className="h-12" />
@@ -227,12 +224,39 @@ function InvoiceList() {
                       </Button>
                     </div>
                   </div>
+                  <Button
+                    className="bg-slate-200 rounded-3xl text-slate-800 hover:bg-[#7c5dfa]/90   flex items-center px-3 py-6"
+                    variant="ghost"
+                  >
+                    <PlusIcon className="size-4 text-slate-800 rounded-full " />
+                    Add New Item
+                  </Button>
                 </div>
                 <SheetFooter>
-                  <Button type="submit">Save changes</Button>
-                  <SheetClose asChild>
-                    <Button variant="outline">Close</Button>
-                  </SheetClose>
+                  <div className="flex justify-center items-center    shrink-0 gap-3 md:gap-0  ">
+                    <SheetClose asChild className="w-max">
+                      <Button
+                        className="bg-slate-400 rounded-3xl text-white hover:bg-rose-800/90 hover:text-white flex items-center md:px-6 md:py-5  text-[13px] font-bold"
+                        variant="outline"
+                      >
+                        Discard
+                      </Button>
+                    </SheetClose>
+                    <Button
+                      type="button"
+                      variant="outline"
+                      className="ml-auto md:mr-3 w-max bg-slate-800 rounded-3xl text-slate-500 hover:bg-[#7c5dfa]/90 hover:text-white flex items-center md:px-6 md:py-5  text-[13px] font-bold"
+                    >
+                      Save Draft
+                    </Button>
+                    <Button
+                      type="button"
+                      variant="outline"
+                      className="w-max p bg-[#7c5dfa] rounded-3xl text-white hover:bg-[#7c5dfa]/90 hover:text-white flex items-center md:px-6 md:py-5  text-[13px] font-bold"
+                    >
+                      Save & Send
+                    </Button>
+                  </div>
                 </SheetFooter>
               </div>
             </SheetContent>
