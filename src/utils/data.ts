@@ -7,7 +7,7 @@ const invoices: Invoice[] = [
     date: "2022-01-01",
     client: "John Doe",
     amount: 100,
-    status: "draft",
+    status: "Draft",
     description: "Graphic Design",
   },
   {
@@ -16,7 +16,7 @@ const invoices: Invoice[] = [
     date: "2022-02-01",
     client: "Jane Doe",
     amount: 200,
-    status: "pending",
+    status: "Pending",
     description: "Web Development",
   },
   {
@@ -25,7 +25,7 @@ const invoices: Invoice[] = [
     date: "2022-03-01",
     client: "Bob Smith",
     amount: 300,
-    status: "paid",
+    status: "Paid",
     description: "Software Development",
   },
   {
@@ -34,7 +34,7 @@ const invoices: Invoice[] = [
     date: "2022-04-01",
     client: "Alice Johnson",
     amount: 400,
-    status: "draft",
+    status: "Draft",
     description: "Web Development",
   },
   {
@@ -43,7 +43,7 @@ const invoices: Invoice[] = [
     date: "2022-05-01",
     client: "Charlie Brown",
     amount: 500,
-    status: "pending",
+    status: "Pending",
     description: "Graphic Design",
   },
   {
@@ -52,7 +52,7 @@ const invoices: Invoice[] = [
     date: "2022-06-01",
     client: "Eve Green",
     amount: 600,
-    status: "paid",
+    status: "Paid",
     description: "Software Development",
   },
   {
@@ -61,7 +61,7 @@ const invoices: Invoice[] = [
     date: "2022-07-01",
     client: "Frank White",
     amount: 700,
-    status: "draft",
+    status: "Draft",
     description: "UI/UX Design",
   },
   {
@@ -70,7 +70,7 @@ const invoices: Invoice[] = [
     date: "2022-08-01",
     client: "Grace Blue",
     amount: 800,
-    status: "pending",
+    status: "Pending",
     description: "Mobile Development",
   },
   {
@@ -79,7 +79,7 @@ const invoices: Invoice[] = [
     date: "2022-09-01",
     client: "Harry Red",
     amount: 900,
-    status: "paid",
+    status: "Paid",
     description: "Backend Development",
   },
   {
@@ -88,7 +88,7 @@ const invoices: Invoice[] = [
     date: "2022-10-01",
     client: "Ivy Yellow",
     amount: 1000,
-    status: "draft",
+    status: "Draft",
     description: "Logo Design",
   },
   {
@@ -97,7 +97,7 @@ const invoices: Invoice[] = [
     date: "2022-11-01",
     client: "Jack Green",
     amount: 1100,
-    status: "pending",
+    status: "Pending",
     description: "Frontend Development",
   },
   {
@@ -106,7 +106,7 @@ const invoices: Invoice[] = [
     date: "2022-12-01",
     client: "Kate Blue",
     amount: 1200,
-    status: "paid",
+    status: "Paid",
     description: "Data Analysis",
   },
 ];

@@ -5,28 +5,66 @@ interface InvoiceTileProps {
   invoice: Invoice;
 }
 function InvoiceTile({ invoice }: InvoiceTileProps) {
+  function getStatusColor(status: string) {
+    switch (status) {
+      case "Paid":
+        return "bg-green-100 text-green-800";
+      case "Draft":
+        return " bg-slate-100 text-slate-800";
+      case "Pending":
+        return "bg-amber-100 text-amber-600";
+      default:
+        return "";
+    }
+  }
+  function getDotColor(status: string) {
+    switch (status) {
+      case "Paid":
+        return "bg-green-800";
+      case "Draft":
+        return "bg-slate-800";
+      case "Pending":
+        return "bg-amber-600";
+      default:
+        return "";
+    }
+  }
   return (
     <Link to="/invoiceDetails" state={invoice}>
-      <Card className=" rounded-sm shadow-xs hover:shadow-md hover:cursor-pointer   hover:border hover:border-[#7c5dfa] my-3">
-        <CardContent className="flex justify-between items-center p-2 sm:p-4">
-          <div className="flex justify-between md:gap-8 gap-2   ">
-            <p className="font-[600] text-xs md:text-sm text-[#7c5dfa] shrink-0">
-              {invoice.invoiceNumber}
+      <Card className=" rounded-sm shadow-xs hover:shadow-md hover:cursor-pointer   hover:border hover:border-[#7c5dfa] my-3 p-2">
+        <CardContent className="flex justify-between items-center p-2 sm:p-4 bg-white   ">
+          <div className="flex flex-col md:flex-row  justify-between md:gap-8 gap-2 items-start md:items-center  ">
+            <p className="font-bold text-xs md:text-lg text-black shrink-0   leading-4 ">
+              #{invoice.invoiceNumber}
             </p>
-            <p className="font-[500] text-xs md:text-sm text-[#888EAF] shrink-0">
+            <p className="font-semibold text-xs md:text-[16px]  text-[#888EAF] shrink-0  leading-4">
               {invoice.date}
             </p>
-            <p className="font-[500] text-xs md:text-sm text-[#888EAF] shrink-0">
-              {invoice.date}
+            <p className="font-bold text-xs md:text-lg  text-black shrink-0  leading-4 block md:hidden">
+              ${invoice.amount}
+            </p>
+            <p className="font-semibold text-xs md:text-[16px] text-[#888EAF] shrink-0  leading-4  hidden md:block">
+              {invoice.client}
             </p>
           </div>
-          {/* md:px-6 px-2.5 */}
-          <div className="flex justify-between md:gap-8 gap-3 items-center">
-            {/* <p className="font-[700] text-xs md:text-sm shrink-0 ">
+
+          <div className="flex flex-col md:flex-row justify-between md:gap-8 gap-3 items-end md:items-center">
+            <p className="font-bold text-xs md:text-lg  text-black shrink-0  leading-4 hidden md:block">
               ${invoice.amount}
-            </p> */}
-            <div className=" md:min-w-28 min-w-24 text-center font-[600] text-xs md:text-sm  py-2.5 bg-orange-100 rounded-sm   text-orange-400">
-              <span className="bg-orange-400 rounded-full inline-block w-2 h-2 mr-2.5"></span>
+            </p>
+            <p className="font-semibold text-xs md:text-[16px] text-[#888EAF] shrink-0  leading-4 md:hidden">
+              {invoice.client}
+            </p>
+            <div
+              className={` md:min-w-28 min-w-24 text-center font-[600] text-xs md:text-sm  py-2.5  rounded-sm ${getStatusColor(
+                invoice.status
+              )}`}
+            >
+              <span
+                className={`  rounded-full inline-block w-2 h-2 mr-2.5 ${getDotColor(
+                  invoice.status
+                )}`}
+              ></span>
               {invoice.status}
             </div>
           </div>

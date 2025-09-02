@@ -78,15 +78,13 @@ function InvoiceDetails() {
             </div>
             <div className="flex flex-col   bg-white rounded-lg shadow-none md:px-6 px-2.5 md:py-6 py-3 mt-8 ">
               <div className="flex justify-between items-start   mb-3  ">
-                <p>
-                  <span className="flex flex-col font-bold text-slate-600 text-sm md:text-md">
-                    #{invoice.invoiceNumber}
-                  </span>
-                  <p className="text-[#858bb2] font-[500] text-xs md:text-md">
-                    {invoice.description}
-                  </p>
+                <span className="flex flex-col font-bold text-slate-600 text-sm md:text-lg">
+                  #{invoice.invoiceNumber}
+                </span>
+                <p className="text-[#858bb2] font-[500] text-xs md:text-sm">
+                  {invoice.description}
                 </p>
-                <div className="text-xs md:text-md text-[#858bb2] font-[500]">
+                <div className="text-xs md:text-sm text-[#858bb2] font-[500]">
                   <p>Customer address</p>
                   <p>Address line two</p>
                   <p>City</p>
@@ -98,7 +96,7 @@ function InvoiceDetails() {
                   <h3 className="text-[#858bb2]  text-xs md:text-md">
                     Invoice Date
                   </h3>
-                  <p className="font-bold text-sm md:text-md text-slate-800">
+                  <p className="font-bold text-sm md:text-lg text-slate-800">
                     {invoice.date}
                   </p>
                 </div>
@@ -106,10 +104,10 @@ function InvoiceDetails() {
                   <h3 className="text-[#858bb2] text-xs md:text-md">
                     Billed To
                   </h3>
-                  <p className="font-bold text-sm md:text-md text-slate-800">
+                  <p className="font-bold text-sm md:text-lg text-slate-800">
                     {invoice.client}
                   </p>
-                  <div className="text-xs md:text-md text-[#858bb2] font-[500]  shrink-0  min-w-[80px] ">
+                  <div className="text-xs md:text-sm text-[#858bb2] font-[500]  shrink-0  min-w-[80px] ">
                     <p>Customer address </p>
                     <p>Address line two</p>
                     <p>City</p>
@@ -119,29 +117,29 @@ function InvoiceDetails() {
 
                 <div>
                   <h3 className="text-[#858bb2] text-xs md:text-md">Sent To</h3>
-                  <p className="font-bold  text-sm md:text-md text-slate-800">
+                  <p className="font-bold  text-sm md:text-lg text-slate-800">
                     {invoice.client}@gmail.com
                   </p>
                 </div>
               </div>
               <div className="-mt-18">
                 <h3 className="text-[#858bb2] text-xs md:text-md">Due Date</h3>
-                <p className="font-bold  text-sm md:text-md text-slate-800">
+                <p className="font-bold  text-sm md:text-lg text-slate-800">
                   {invoice.date}
                 </p>
               </div>
               <div className="mt-6 rounded-tr-md rounded-tl-md  relative bg-[#f4f4f5]   shadow-none md:px-6 px-2.5 md:py-6 py-3 ">
                 <div className="flex justify-between items-center  ">
-                  <p className="text-xs md:text-sm lg:text-md text-[#858bb2]  font-semibold">
+                  <p className="text-xs md:text-sm lg:text-lg text-[#858bb2]  font-semibold">
                     Item name
                   </p>
-                  <p className="text-xs md:text-sm lg:text-md ml-5 lg:ml-8 text-[#858bb2]  font-semibold">
+                  <p className="text-xs md:text-sm lg:text-lg ml-5 lg:ml-8 text-[#858bb2]  font-semibold">
                     Qty
                   </p>
-                  <p className="text-xs md:text-sm lg:text-md text-[#858bb2]  font-semibold">
+                  <p className="text-xs md:text-sm lg:text-lg text-[#858bb2]  font-semibold">
                     Price
                   </p>
-                  <p className="text-xs md:text-sm lg:text-md text-[#858bb2] font-semibold">
+                  <p className="text-xs md:text-sm lg:text-lg text-[#858bb2] font-semibold">
                     Total
                   </p>
                 </div>
@@ -150,10 +148,16 @@ function InvoiceDetails() {
                     key={item}
                     className="flex justify-between    mt-3 font-bold text-slate-800 "
                   >
-                    <p className="text-xs md:text-md ">{invoice.description}</p>
-                    <p className="text-xs md:text-md ">1</p>
-                    <p className="text-xs md:text-md ">${invoice.amount}</p>
-                    <p className="text-xs md:text-md ">${invoice.amount}</p>
+                    <p className="text-xs md:text-sm lg:text-lg">
+                      {invoice.description}
+                    </p>
+                    <p className="text-xs md:text-sm lg:text-lg">1</p>
+                    <p className="text-xs md:text-sm lg:text-lg">
+                      ${invoice.amount}
+                    </p>
+                    <p className="text-xs md:text-sm lg:text-lg">
+                      ${invoice.amount}
+                    </p>
                   </div>
                 ))}
               </div>
