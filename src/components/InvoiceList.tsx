@@ -417,6 +417,13 @@ function InvoiceList() {
                                       className="  h-12 border px-2 rounded-sm w-full"
                                       placeholder="Item name"
                                     />
+                                    <div className="min-h-[20px]">
+                                      <ErrorMessage
+                                        name={`items.${index}.name`}
+                                        component="div"
+                                        className="text-red-500 text-sm  "
+                                      />
+                                    </div>
                                   </div>
                                   <div className="grid gap-3 col-span-3 md:col-span-2   ">
                                     <Label htmlFor="item-total">Qty</Label>
@@ -427,6 +434,13 @@ function InvoiceList() {
                                       className=" h-12 w-full border px-2 rounded-sm "
                                       placeholder="Qty"
                                     />
+                                    <div className="min-h-[20px]">
+                                      <ErrorMessage
+                                        name={`items.${index}.qty`}
+                                        component="div"
+                                        className="text-red-500 text-[8px] min-h-[20px]"
+                                      />
+                                    </div>
                                   </div>
 
                                   <div className="grid gap-3 col-span-5 md:col-span-2    ">
@@ -438,23 +452,31 @@ function InvoiceList() {
                                       className=" h-12 w-full border px-2 rounded-sm "
                                       placeholder="Price"
                                     />
+                                    <div className="min-h-[20px]">
+                                      <ErrorMessage
+                                        name={`items.${index}.price`}
+                                        component="div"
+                                        className="text-red-500 text-[8px] min-h-[20px]"
+                                      />
+                                    </div>
                                   </div>
                                   <div className="grid gap-3 col-span-2 md:col-span-2    ">
                                     <Label htmlFor="item-total">Total</Label>
-                                    <Field
-                                      name={`items.${index}.price`}
-                                      as="input"
-                                      type="number"
+                                    <Input
                                       className=" h-12 w-full border px-2 rounded-sm "
-                                      placeholder="Total"
-                                    />
-                                    {/* <Input
-                                      id="item-total"
-                                      type="text"
                                       readOnly
-                                      value={"$0.00"}
-                                      className="h-12 border-none shadow-none font-bold text-gray-500 w-full"
-                                    /> */}
+                                      value={
+                                        formik.values.items[index].qty *
+                                        formik.values.items[index].price
+                                      }
+                                    />
+                                    <div className="min-h-[20px]">
+                                      {/* <ErrorMessage
+                                        name={`items.${index}.total`}
+                                        component="div"
+                                        className="text-red-500 text-[8px] min-h-[20px]"
+                                      /> */}
+                                    </div>
                                   </div>
 
                                   <div className="grid gap-3 place-content-center pt-5 col-span-2 md:col-span-1">

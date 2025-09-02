@@ -31,12 +31,12 @@ export const invoiceSchema = Yup.object().shape({
       Yup.object().shape({
         name: Yup.string().required("Item name is required"),
         qty: Yup.number()
-          .typeError("Qty must be a number")
-          .positive("Qty must be greater than 0")
+          // .typeError("Qty must be a number")
+          // .positive("Qty must be greater than 0")
           .required("Qty is required"),
         price: Yup.number()
-          .typeError("Price must be a number")
-          .positive("Price must be greater than 0")
+          // .typeError("Price must be a number")
+          // .positive("Price must be greater than ")
           .required("Price is required"),
       })
     )
