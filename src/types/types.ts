@@ -12,6 +12,7 @@ export interface Item {
   name: string;
   qty: number;
   price: number;
+  total: number;
 }
 
 export interface InvoiceFormValues {
@@ -22,7 +23,6 @@ export interface InvoiceFormValues {
     country: string;
   };
   billTo: {
-    name: string;
     email: string;
     street: string;
     city: string;

@@ -44,7 +44,6 @@ function InvoiceList() {
   const initialValues: InvoiceFormValues = {
     billFrom: { street: "", city: "", postcode: "", country: "" },
     billTo: {
-      name: "",
       email: "",
       street: "",
       city: "",
@@ -54,7 +53,7 @@ function InvoiceList() {
     invoiceDate: null,
     paymentTerms: "",
     projectDescription: "",
-    items: [{ name: "", qty: 1, price: 0 }],
+    items: [{ name: "", qty: 1, price: 0, total: 0 }],
   };
 
   return (
@@ -431,6 +430,21 @@ function InvoiceList() {
                                       name={`items.${index}.qty`}
                                       as="input"
                                       type="number"
+                                      value={formik.values.items[index].qty}
+                                      onChange={(
+                                        e: React.ChangeEvent<HTMLInputElement>
+                                      ) => {
+                                        const value = Number(e.target.value);
+                                        formik.setFieldValue(
+                                          `items.${index}.qty`,
+                                          value
+                                        );
+                                        formik.setFieldValue(
+                                          `items.${index}.total`,
+                                          value *
+                                            formik.values.items[index].price
+                                        );
+                                      }}
                                       className=" h-12 w-full border px-2 rounded-sm "
                                       placeholder="Qty"
                                     />
@@ -451,6 +465,20 @@ function InvoiceList() {
                                       type="number"
                                       className=" h-12 w-full border px-2 rounded-sm "
                                       placeholder="Price"
+                                      value={formik.values.items[index].price}
+                                      onChange={(
+                                        e: React.ChangeEvent<HTMLInputElement>
+                                      ) => {
+                                        const value = Number(e.target.value);
+                                        formik.setFieldValue(
+                                          `items.${index}.price`,
+                                          value
+                                        );
+                                        formik.setFieldValue(
+                                          `items.${index}.total`,
+                                          formik.values.items[index].qty * value
+                                        );
+                                      }}
                                     />
                                     <div className="min-h-[20px]">
                                       <ErrorMessage
@@ -466,9 +494,12 @@ function InvoiceList() {
                                       className=" h-12 w-full border px-2 rounded-sm "
                                       readOnly
                                       value={
-                                        formik.values.items[index].qty *
-                                        formik.values.items[index].price
+                                        formik.values.items[index].total ?? 0
                                       }
+                                      // value={
+                                      //   formik.values.items[index].qty *
+                                      //   formik.values.items[index].price
+                                      // }
                                     />
                                     <div className="min-h-[20px]">
                                       {/* <ErrorMessage
@@ -527,6 +558,13 @@ function InvoiceList() {
                         <Button
                           type="submit"
                           variant="outline"
+                          // disabled={formik.isSubmitting}
+                          onClick={
+                            () => console.log(formik.isValid)
+                            // formik.isSubmitting
+                            //   ? () => {}
+                            //   : () => formik.submitForm()
+                          }
                           className="w-max p bg-[#7c5dfa] rounded-3xl text-white hover:bg-[#7c5dfa]/90 hover:text-white flex items-center md:px-6 md:py-5  text-[13px] font-bold"
                         >
                           Save & Send
