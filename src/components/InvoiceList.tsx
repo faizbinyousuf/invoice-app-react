@@ -383,13 +383,15 @@ function InvoiceList() {
                             <PopoverTrigger asChild>
                               <Button
                                 variant="outline"
-                                className={`data-[empty=true]:text-muted-foreground   justify-start text-left font-normal h-12 ${
+                                className={`data-[empty=true]:text-muted-foreground   justify-start text-left font-normal h-12 `}
+                              >
+                                {/* Use the below to make the border red when there is an error */}
+                                {/* ${
                                   formik.touched.invoiceDate &&
                                   formik.errors.invoiceDate
                                     ? "border-red-500"
                                     : ""
-                                }`}
-                              >
+                                } */}
                                 <CalendarIcon className="font-[400] text-[#888EAF] text-[13px]" />
                                 {date ? (
                                   format(date, "PPP")
@@ -416,7 +418,7 @@ function InvoiceList() {
                             </PopoverContent>
                           </Popover>
 
-                          <div className="min-h-[20px]">
+                          <div className="min-h-[20px] text-nowrap">
                             {formik.touched.invoiceDate &&
                               formik.errors.invoiceDate && (
                                 <p className="text-red-500 text-[13px]">
@@ -460,7 +462,7 @@ function InvoiceList() {
                             </SelectContent>
                           </Select>
 
-                          <div className="min-h-[20px]">
+                          <div className="min-h-[20px] text-nowrap ">
                             {formik.touched.paymentTerms &&
                               formik.errors.paymentTerms && (
                                 <p className="text-red-500 text-[13px]">
@@ -625,7 +627,7 @@ function InvoiceList() {
                                     </div>
                                   </div>
 
-                                  <div className="grid gap-3 place-content-center pt-5 col-span-2 md:col-span-1">
+                                  <div className="grid gap-3 place-content-center    col-span-2 md:col-span-1">
                                     <Button
                                       onClick={() => remove(index)}
                                       variant="ghost"

@@ -2,14 +2,7 @@ import NavBar from "@/components/NavBar";
 import { Button } from "@/components/ui/button";
 
 import type { Invoice } from "@/types/types";
-import {
-  ChevronLeft,
-  Edit,
-  Edit2,
-  Edit3,
-  EditIcon,
-  FileEdit,
-} from "lucide-react";
+import { ChevronLeft, EditIcon } from "lucide-react";
 
 import { useLocation } from "react-router-dom";
 // interface InvoiceDetailProps {
@@ -45,8 +38,8 @@ function InvoiceDetails() {
     <div className="min-h-screen bg-[#f2f2f2] ">
       <div className="flex flex-col lg:flex-row scroll-auto">
         <NavBar />
-        <div className="w-full min-h-screen lg:w-3/5    lg:mx-auto  px-1.5 md:px-3 py-3 pt-20 lg:pt-3">
-          <div className="   py-5  mt-8">
+        <div className="w-full min-h-screen lg:w-3/5    lg:mx-auto  px-1.5 md:px-3 py-3 pt-14  lg:pt-3">
+          <div className="   py-5">
             <Button
               onClick={() => window.history.back()}
               variant={"ghost"}
@@ -56,7 +49,7 @@ function InvoiceDetails() {
               Go Back
             </Button>
           </div>
-          <div className="mt-5  px-5 ">
+          <div className="  px-5 ">
             <div className="flex gap-2 justify-between   md:justify-start items-center bg-white rounded-lg shadow-none md:px-6 px-2.5 md:py-6 py-3  ">
               <div
                 className={`hidden md:block md:min-w-28 min-w-24 text-center font-[600] text-xs md:text-sm  py-2.5  rounded-sm ${getStatusColor(
