@@ -44,6 +44,7 @@ function InvoiceList() {
   const initialValues: InvoiceFormValues = {
     billFrom: { street: "", city: "", postcode: "", country: "" },
     billTo: {
+      name: "",
       email: "",
       street: "",
       city: "",
@@ -78,7 +79,7 @@ function InvoiceList() {
                   className="font-bold hidden md:block"
                   style={{ color: "#7c5dfa", fontWeight: "bold" }}
                   defaultValue={statusFilter}
-                  placeholder="Filter"
+                  //placeholder="Filter"
                 />
               </SelectTrigger>
 
@@ -125,7 +126,7 @@ function InvoiceList() {
             </SheetTrigger>
             <SheetContent
               side="left"
-              className="w-full sm:max-w-lg ml-0 lg:ml-20 p-0 mt-20 lg:mt-0  grid "
+              className="w-full sm:max-w-lg ml-0 lg:ml-16 p-0 mt-16 lg:mt-0  grid "
             >
               <Formik
                 initialValues={initialValues}
@@ -138,59 +139,86 @@ function InvoiceList() {
                 {(formik) => (
                   <Form className="  overflow-y-auto p-6  ">
                     <SheetHeader className="p-0 m-0">
-                      <SheetTitle className="text-2xl font-bold">
+                      <SheetTitle className="text-2xl font-bold text-[#888EAF]">
                         Create invoice
                       </SheetTitle>
                     </SheetHeader>
                     <div className="grid  auto-rows-min gap-6 py-5 ">
-                      <h3 className="font-bold text-[#7c5dfa]">Bill from</h3>
+                      <h3 className="font-semibold text-[#7c5dfa]">
+                        Bill from
+                      </h3>
                       <div className="grid gap-3">
-                        {/* <Label htmlFor="street-address">Street address</Label>
+                        <Label
+                          htmlFor="street-address"
+                          className="font-[400] text-[#888EAF] text-[13px]"
+                        >
+                          Street Address
+                        </Label>
+                        {/* 
                         <Input id="street-address" className="h-12" /> */}
                         <Field
                           name="billFrom.street"
                           as="input"
-                          className="h-12 border px-2 rounded-sm w-full"
-                          placeholder="Street"
+                          className="h-12 border border-[#dfe3fa] px-2 rounded-sm w-full"
+                          //placeholder="Street"
                         />
                         <ErrorMessage
                           name="billFrom.street"
                           component="p"
-                          className="text-red-500 text-sm"
+                          className="text-red-500 text-[13px]"
                         />
                       </div>
                       <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                         <div className="grid gap-3">
-                          {/* <Label htmlFor="city">City</Label>
+                          <Label
+                            htmlFor="city"
+                            className="font-[400] text-[#888EAF] text-[13px]"
+                          >
+                            City
+                          </Label>
+                          {/* 
+                          
                           <Input id="city" className="h-12" /> */}
                           <Field
                             name="billFrom.city"
                             as="input"
                             className="h-12 border px-2 rounded-sm w-full"
-                            placeholder="City"
+                            //placeholder="City"
                           />
                           <ErrorMessage
                             name="billFrom.city"
                             component="p"
-                            className="text-red-500 text-sm"
+                            className="text-red-500 text-[13px]"
                           />
                         </div>
                         <div className="grid gap-3">
-                          {/* <Label htmlFor="postcode">Postcode</Label>
+                          <Label
+                            htmlFor="postcode"
+                            className="font-[400] text-[#888EAF] text-[13px]"
+                          >
+                            Postcode
+                          </Label>
+                          {/* 
                           <Input id="postcode" className="h-12" /> */}
                           <Field
                             name="billFrom.postcode"
                             as="input"
                             className="h-12 border px-2 rounded-sm w-full"
-                            placeholder="Postcode"
+                            //placeholder="Postcode"
                           />
                           <ErrorMessage
                             name="billFrom.postcode"
                             component="p"
-                            className="text-red-500 text-sm"
+                            className="text-red-500 text-[13px]"
                           />
                         </div>
                         <div className="grid gap-3 col-span-2 md:col-span-1">
+                          <Label
+                            htmlFor="country"
+                            className="font-[400] text-[#888EAF] text-[13px]"
+                          >
+                            Country
+                          </Label>
                           {/* <Label htmlFor="country">Country</Label>
                           <Input id="country" className="h-12" /> */}
 
@@ -198,104 +226,154 @@ function InvoiceList() {
                             name="billFrom.country"
                             as="input"
                             className="h-12 border px-2 rounded-sm w-full"
-                            placeholder="Country"
+                            //placeholder="Country"
                           />
                           <ErrorMessage
                             name="billFrom.country"
                             component="p"
-                            className="text-red-500 text-sm"
+                            className="text-red-500 text-[13px]"
                           />
                         </div>
                       </div>
-                      <h3 className="font-bold text-[#7c5dfa]">Bill To</h3>
+                      <h3 className="font-semibold text-[#7c5dfa]">Bill To</h3>
                       <div className="grid gap-3">
-                        {/* <Label htmlFor="client-name">Client's Name</Label>
-                        <Input id="client-name" className="h-12" /> */}
+                        <Label
+                          htmlFor="client-name"
+                          className="font-[400] text-[#888EAF] text-[13px]"
+                        >
+                          Client's Name
+                        </Label>
+                        <Field
+                          name="billTo.name"
+                          as="input"
+                          className="h-12 border px-2 rounded-sm w-full"
+                          //placeholder="Client's Name"
+                        />
+                        <ErrorMessage
+                          name="billTo.email"
+                          component="p"
+                          className="text-red-500 text-[13px]"
+                        />
                       </div>
                       <div className="grid gap-3">
-                        {/* <Label htmlFor="client-email">Client's Email</Label> */}
+                        <Label
+                          htmlFor="client-email"
+                          className="font-[400] text-[#888EAF] text-[13px]"
+                        >
+                          Client's Email
+                        </Label>
+                        {/* */}
                         {/* <Input id="client-email" className="h-12" /> */}
 
                         <Field
                           name="billTo.email"
                           as="input"
                           className="h-12 border px-2 rounded-sm w-full"
-                          placeholder="Client's Email"
+                          //placeholder="Client's Email"
                         />
                         <ErrorMessage
                           name="billTo.email"
                           component="p"
-                          className="text-red-500 text-sm"
+                          className="text-red-500 text-[13px]"
                         />
                       </div>
                       <div className="grid gap-3">
-                        {/* <Label htmlFor="street-address-client">
+                        <Label
+                          htmlFor="street-address-client"
+                          className="font-[400] text-[#888EAF] text-[13px]"
+                        >
                           Street address
                         </Label>
+                        {/*
                         <Input id="street-address-client" className="h-12" /> */}
 
                         <Field
                           name="billTo.street"
                           as="input"
                           className="h-12 border px-2 rounded-sm w-full"
-                          placeholder="Street"
+                          //placeholder="Street"
                         />
                         <ErrorMessage
                           name="billTo.street"
                           component="p"
-                          className="text-red-500 text-sm"
+                          className="text-red-500 text-[13px]"
                         />
                       </div>
                       <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                         <div className="grid gap-3">
+                          <Label
+                            htmlFor="city-client"
+                            className="font-[400] text-[#888EAF] text-[13px]"
+                          >
+                            City
+                          </Label>
                           <Field
                             name="billTo.city"
                             as="input"
                             className="h-12 border px-2 rounded-sm w-full"
-                            placeholder="City"
+                            //placeholder="City"
                           />
                           <ErrorMessage
                             name="billTo.city"
                             component="p"
-                            className="text-red-500 text-sm"
+                            className="text-red-500 text-[13px]"
                           />
-                          {/* <Label htmlFor="city-client">City</Label>
+
+                          {/*
                           <Input id="city-client" className="h-12" /> */}
                         </div>
                         <div className="grid gap-3">
-                          {/* <Label htmlFor="postcode-client">Postcode</Label>
+                          <Label
+                            htmlFor="postcode-client"
+                            className="font-[400] text-[#888EAF] text-[13px]"
+                          >
+                            Postcode
+                          </Label>
+                          {/* 
                           <Input id="postcode-client" className="h-12" /> */}
                           <Field
                             name="billTo.postcode"
                             as="input"
                             className="h-12 border px-2 rounded-sm w-full"
-                            placeholder="Postcode"
+                            //placeholder="Postcode"
                           />
                           <ErrorMessage
                             name="billTo.postcode"
                             component="p"
-                            className="text-red-500 text-sm"
+                            className="text-red-500 text-[13px]"
                           />
                         </div>
                         <div className="grid gap-3 col-span-2 md:col-span-1">
+                          <Label
+                            htmlFor="country-client"
+                            className="font-[400] text-[#888EAF] text-[13px]"
+                          >
+                            Country
+                          </Label>
                           <Field
                             name="billTo.country"
                             as="input"
                             className="h-12 border px-2 rounded-sm w-full"
-                            placeholder="Country"
+                            //placeholder="Country"
                           />
                           <ErrorMessage
                             name="billTo.country"
                             component="p"
-                            className="text-red-500 text-sm"
+                            className="text-red-500 text-[13px]"
                           />
-                          {/* <Label htmlFor="country-client">Country</Label>
+
+                          {/* 
                           <Input id="country-client" className="h-12" /> */}
                         </div>
                       </div>
                       <div className="flex justify-between items-end gap-3  ">
                         <div className="grid gap-3 flex-1">
-                          <Label htmlFor="postcode-client">Invoice Date</Label>
+                          <Label
+                            htmlFor="postcode-client"
+                            className="font-[400] text-[#888EAF] text-[13px]"
+                          >
+                            Invoice Date
+                          </Label>
                           <Popover
                             open={openDate}
                             onOpenChange={setOpenDate}
@@ -312,11 +390,13 @@ function InvoiceList() {
                                     : ""
                                 }`}
                               >
-                                <CalendarIcon />
+                                <CalendarIcon className="font-[400] text-[#888EAF] text-[13px]" />
                                 {date ? (
                                   format(date, "PPP")
                                 ) : (
-                                  <span>Pick a date</span>
+                                  <span className="font-[400] text-[#888EAF] text-[13px]">
+                                    Pick a date
+                                  </span>
                                 )}
                               </Button>
                             </PopoverTrigger>
@@ -339,14 +419,19 @@ function InvoiceList() {
                           <div className="min-h-[20px]">
                             {formik.touched.invoiceDate &&
                               formik.errors.invoiceDate && (
-                                <p className="text-red-500 text-sm">
+                                <p className="text-red-500 text-[13px]">
                                   {formik.errors.invoiceDate}
                                 </p>
                               )}
                           </div>
                         </div>
                         <div className="grid  gap-3 flex-1     ">
-                          <Label htmlFor="payment-terms">Payment Terms</Label>
+                          <Label
+                            htmlFor="payment-terms"
+                            className="font-[400] text-[#888EAF] text-[13px]"
+                          >
+                            Payment Terms
+                          </Label>
 
                           <Select
                             value={formik.values.paymentTerms}
@@ -354,7 +439,7 @@ function InvoiceList() {
                               formik.setFieldValue("paymentTerms", value)
                             }
                           >
-                            <SelectTrigger className="w-full min-h-12 ">
+                            <SelectTrigger className="w-full min-h-12 font-[400] text-[#888EAF] text-[13px] ">
                               <SelectValue placeholder="Select a term" />
                             </SelectTrigger>
 
@@ -364,7 +449,11 @@ function InvoiceList() {
                                 { id: 2, name: "30 days" },
                                 { id: 3, name: "60 days" },
                               ].map((exec) => (
-                                <SelectItem key={exec.id} value={exec.name}>
+                                <SelectItem
+                                  className="font-[400] text-[#888EAF] text-[13px]"
+                                  key={exec.id}
+                                  value={exec.name}
+                                >
                                   {exec.name}
                                 </SelectItem>
                               ))}
@@ -374,7 +463,7 @@ function InvoiceList() {
                           <div className="min-h-[20px]">
                             {formik.touched.paymentTerms &&
                               formik.errors.paymentTerms && (
-                                <p className="text-red-500 text-sm">
+                                <p className="text-red-500 text-[13px]">
                                   {formik.errors.paymentTerms}
                                 </p>
                               )}
@@ -382,39 +471,50 @@ function InvoiceList() {
                         </div>
                       </div>
                       <div className="grid gap-3">
-                        {/* <Label htmlFor="project">Project Description</Label> */}
+                        <Label
+                          htmlFor="project"
+                          className="font-[400] text-[#888EAF] text-[13px]"
+                        >
+                          Project Description
+                        </Label>
+                        {/* */}
                         {/* <Input id="project" className="h-12" /> */}
                         <Field
                           name="projectDescription"
                           as="input"
                           className="h-12 border px-2 rounded-sm w-full"
-                          placeholder="Project Description"
+                          //placeholder="Project Description"
                         />
                         <ErrorMessage
                           name="projectDescription"
                           component="p"
-                          className="text-red-500 text-sm"
+                          className="text-red-500 text-[13px]"
                         />
                       </div>
-                      <h2 className="text-2xl font-bold">Item List</h2>
+                      <h2 className="text-2xl font-bold text-[#888EAF]">
+                        Item List
+                      </h2>
                       <div>
                         <FieldArray name="items">
                           {({ remove, push }) => (
                             <>
-                              {formik.values.items.map((item, index) => (
+                              {formik.values.items.map((_item, index) => (
                                 <div
                                   key={index}
                                   className="grid gap-3 grid-cols-12 items-center  mb-5  "
                                 >
                                   <div className="grid gap-3 col-span-12 md:col-span-5    ">
-                                    <Label htmlFor="item-total">
+                                    <Label
+                                      htmlFor="item-total"
+                                      className="font-[400] text-[#888EAF] text-[13px]"
+                                    >
                                       Item name
                                     </Label>
                                     <Field
                                       name={`items.${index}.name`}
                                       as="input"
                                       className="  h-12 border px-2 rounded-sm w-full"
-                                      placeholder="Item name"
+                                      //placeholder="Item name"
                                     />
                                     <div className="min-h-[20px]">
                                       <ErrorMessage
@@ -425,7 +525,12 @@ function InvoiceList() {
                                     </div>
                                   </div>
                                   <div className="grid gap-3 col-span-3 md:col-span-2   ">
-                                    <Label htmlFor="item-total">Qty</Label>
+                                    <Label
+                                      htmlFor="item-total"
+                                      className="font-[400] text-[#888EAF] text-[13px]"
+                                    >
+                                      Qty
+                                    </Label>
                                     <Field
                                       name={`items.${index}.qty`}
                                       as="input"
@@ -446,7 +551,7 @@ function InvoiceList() {
                                         );
                                       }}
                                       className=" h-12 w-full border px-2 rounded-sm "
-                                      placeholder="Qty"
+                                      //placeholder="Qty"
                                     />
                                     <div className="min-h-[20px]">
                                       <ErrorMessage
@@ -458,13 +563,18 @@ function InvoiceList() {
                                   </div>
 
                                   <div className="grid gap-3 col-span-5 md:col-span-2    ">
-                                    <Label htmlFor="item-total">Price</Label>
+                                    <Label
+                                      htmlFor="item-total"
+                                      className="font-[400] text-[#888EAF] text-[13px]"
+                                    >
+                                      Price
+                                    </Label>
                                     <Field
                                       name={`items.${index}.price`}
                                       as="input"
                                       type="number"
                                       className=" h-12 w-full border px-2 rounded-sm "
-                                      placeholder="Price"
+                                      //placeholder="Price"
                                       value={formik.values.items[index].price}
                                       onChange={(
                                         e: React.ChangeEvent<HTMLInputElement>
@@ -489,7 +599,12 @@ function InvoiceList() {
                                     </div>
                                   </div>
                                   <div className="grid gap-3 col-span-2 md:col-span-2    ">
-                                    <Label htmlFor="item-total">Total</Label>
+                                    <Label
+                                      htmlFor="item-total"
+                                      className="font-[400] text-[#888EAF] text-[13px]"
+                                    >
+                                      Total
+                                    </Label>
                                     <Input
                                       className=" h-12 w-full border px-2 rounded-sm "
                                       readOnly
@@ -539,7 +654,7 @@ function InvoiceList() {
                       </div>
                     </div>
                     <SheetFooter>
-                      <div className="flex justify-center items-center    shrink-0 gap-3 md:gap-0  ">
+                      <div className="flex justify-center items-center    shrink-0 gap-3 md:gap-0 mb-16 lg:mb-0 ">
                         <SheetClose asChild className="w-max">
                           <Button
                             className="bg-slate-400 rounded-3xl text-white hover:bg-rose-800/90 hover:text-white flex items-center md:px-6 md:py-5  text-[13px] font-bold"
@@ -583,11 +698,6 @@ function InvoiceList() {
           <InvoiceTile invoice={invoice} key={invoice.id} />
         ))}
       </div>
-      {/* <div className="overflow-y-auto md:max-h-[calc(100vh-14rem)]  max-h-[calc(100vh-15rem)] lg:max-h-[calc(100vh-10rem)]">
-        {invoices.map((invoice) => (
-          <InvoiceTile invoice={invoice} key={invoice.id} />
-        ))}
-      </div> */}
     </div>
   );
 }

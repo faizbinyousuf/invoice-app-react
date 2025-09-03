@@ -14,7 +14,7 @@ export const invoiceSchema = Yup.object().shape({
     country: Yup.string().required("Country is required"),
   }),
   billTo: Yup.object().shape({
-    // name: Yup.string().required("Client name is required"),
+    name: Yup.string().required("Client name is required"),
     email: Yup.string()
       .email("Invalid email format")
       .required("Client email is required"),

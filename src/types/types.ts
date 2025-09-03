@@ -23,6 +23,7 @@ export interface InvoiceFormValues {
     country: string;
   };
   billTo: {
+    name: string;
     email: string;
     street: string;
     city: string;

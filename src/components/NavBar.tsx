@@ -3,14 +3,14 @@ import { Separator } from "./ui/separator";
 
 function NavBar() {
   return (
-    <div className="z-100 bgred w-full lg:h-screen bg-[#373b53] h-20 lg:w-20 flex lg:flex-col items-center lg:items-start lg:rounded-tr-2xl lg:rounded-br-2xl fixed ">
+    <div className="z-100 bgred w-full lg:h-screen bg-[#373b53] h-16 lg:w-20 flex lg:flex-col items-center lg:items-start lg:rounded-tr-2xl lg:rounded-br-2xl fixed ">
       <div className="text-white w-24 lg:h-24 bg-[#7c5dfa] h-full lg:w-full rounded-tr-2xl rounded-br-2xl flex items-center justify-center">
         <div className="size-10 rounded-full bg-gray-50 grid place-items-center">
           <User className="size-6 " />
         </div>
       </div>
 
-      <div className=" lg:min-h-40 flex gap-12 ml-auto lg:mt-auto  h-20 items-center   lg:flex-col  lg:w-full pr-6 lg:pr-0 lg:mb-8  ">
+      <div className=" lg:min-h-40 flex gap-12 ml-auto lg:mt-auto  h-16 items-center   lg:flex-col  lg:w-full pr-6 lg:pr-0 lg:mb-8  ">
         <div className="size-10 rounded-full   grid  place-items-center">
           <MoonIcon className="size-6 text-gray-400 " />
         </div>

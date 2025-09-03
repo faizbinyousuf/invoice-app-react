@@ -49,7 +49,7 @@ function InvoiceTile({ invoice }: InvoiceTileProps) {
           </div>
 
           <div className="flex flex-col md:flex-row justify-between md:gap-8 gap-3 items-end md:items-center">
-            <p className="font-bold text-xs md:text-lg  text-black shrink-0  leading-4 hidden md:block">
+            <p className="font-bold text-xs md:text-lg text-black shrink-0  leading-4 hidden md:block">
               ${invoice.amount}
             </p>
             <p className="font-semibold text-xs md:text-[16px] text-[#888EAF] shrink-0  leading-4 md:hidden">

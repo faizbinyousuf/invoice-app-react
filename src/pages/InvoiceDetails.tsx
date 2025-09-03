@@ -2,13 +2,44 @@ import NavBar from "@/components/NavBar";
 import { Button } from "@/components/ui/button";
 
 import type { Invoice } from "@/types/types";
-import { ChevronLeft } from "lucide-react";
-import React from "react";
+import {
+  ChevronLeft,
+  Edit,
+  Edit2,
+  Edit3,
+  EditIcon,
+  FileEdit,
+} from "lucide-react";
+
 import { useLocation } from "react-router-dom";
 // interface InvoiceDetailProps {
 //   invoice: Invoice;
 // }
 function InvoiceDetails() {
+  function getStatusColor(status: string) {
+    switch (status) {
+      case "Paid":
+        return "bg-green-100 text-green-800";
+      case "Draft":
+        return " bg-slate-100 text-slate-800";
+      case "Pending":
+        return "bg-amber-100 text-amber-600";
+      default:
+        return "";
+    }
+  }
+  function getDotColor(status: string) {
+    switch (status) {
+      case "Paid":
+        return "bg-green-800";
+      case "Draft":
+        return "bg-slate-800";
+      case "Pending":
+        return "bg-amber-600";
+      default:
+        return "";
+    }
+  }
   const invoice: Invoice = useLocation().state;
   return (
     <div className="min-h-screen bg-[#f2f2f2] ">
@@ -26,36 +57,24 @@ function InvoiceDetails() {
             </Button>
           </div>
           <div className="mt-5  px-5 ">
-            <div className="flex gap-2 bg-white rounded-lg shadow-none md:px-6 px-2.5 md:py-6 py-3  ">
+            <div className="flex gap-2 justify-between   md:justify-start items-center bg-white rounded-lg shadow-none md:px-6 px-2.5 md:py-6 py-3  ">
               <div
-                className={`md:min-w-28 min-w-24 text-center text-sm md:text-base py-3.5   rounded-sm font-semibold  
-                ${
-                  invoice.status === "paid" ? "bg-green-100 text-green-400" : ""
-                }
-                ${invoice.status === "draft" ? "border border-gray-300" : ""}
-                ${
-                  invoice.status === "pending"
-                    ? "bg-orange-100 text-orange-400"
-                    : ""
-                }
-                ${invoice.status === "draft" ? "bg-gray-100 text-gray-400" : ""}
-                `}
+                className={`hidden md:block md:min-w-28 min-w-24 text-center font-[600] text-xs md:text-sm  py-2.5  rounded-sm ${getStatusColor(
+                  invoice.status
+                )}`}
               >
                 <span
-                  className={` rounded-full inline-block w-2 h-2 mr-2.5 ${
-                    invoice.status === "paid" ? "bg-green-400" : ""
-                  }
-                  ${invoice.status === "pending" ? "bg-orange-400" : ""}
-                  ${invoice.status === "draft" ? "bg-gray-400" : ""}
-                  `}
+                  className={`  rounded-full inline-block w-2 h-2 mr-2.5 ${getDotColor(
+                    invoice.status
+                  )}`}
                 ></span>
                 {invoice.status}
               </div>
-              {/* //buttons */}
+
               <Button
                 type="button"
                 variant="outline"
-                className="ml-auto shadow-none  bg-[#f4f4f5] rounded-3xl text-[#7e88c3] hover:bg-[#7e88c3]/90 hover:text-white flex items-center px-4 py-6"
+                className="hidden md:flex items-center md:ml-auto shadow-none  bg-[#f4f4f5] rounded-3xl text-[#7e88c3] hover:bg-[#7e88c3]/90 hover:text-white  px-4 py-6"
               >
                 Edit
               </Button>
@@ -69,7 +88,7 @@ function InvoiceDetails() {
               <Button
                 type="button"
                 variant="outline"
-                className="bg-[#7c5dfa] rounded-3xl text-white hover:bg-[#7c5dfa]/90 hover:text-white flex items-center px-3 py-6"
+                className="bg-[#7c5dfa]  rounded-3xl text-white hover:bg-[#7c5dfa]/90 hover:text-white flex items-center px-3 py-6"
               >
                 {invoice.status === "pending"
                   ? "Mark as Paid"
@@ -77,13 +96,36 @@ function InvoiceDetails() {
               </Button>
             </div>
             <div className="flex flex-col   bg-white rounded-lg shadow-none md:px-6 px-2.5 md:py-6 py-3 mt-8 ">
-              <div className="flex justify-between items-start   mb-3  ">
+              <div className="flex md:hidden justify-between md:justify-end items-start   mb-3 p-0 m-0 ">
+                <Button
+                  type="button"
+                  variant="link"
+                  className="md:hidden rounded-none shadow-none flex items-center m-0 p-0 text-[#7e88c3] bg-[#f4f4f5] "
+                >
+                  <EditIcon />
+                </Button>
+
+                <div
+                  className={` md:min-w-28 min-w-24 text-center font-[600] text-xs md:text-sm  py-2.5  rounded-sm ${getStatusColor(
+                    invoice.status
+                  )}`}
+                >
+                  <span
+                    className={`  rounded-full inline-block w-2 h-2 mr-2.5 ${getDotColor(
+                      invoice.status
+                    )}`}
+                  ></span>
+                  {invoice.status}
+                </div>
+              </div>
+              <div className="flex justify-between items-start    mb-3 mt-2 ">
                 <span className="flex flex-col font-bold text-slate-600 text-sm md:text-lg">
                   #{invoice.invoiceNumber}
+                  <p className="text-[#858bb2] font-[500] text-xs md:text-sm">
+                    {invoice.description}
+                  </p>
                 </span>
-                <p className="text-[#858bb2] font-[500] text-xs md:text-sm">
-                  {invoice.description}
-                </p>
+
                 <div className="text-xs md:text-sm text-[#858bb2] font-[500]">
                   <p>Customer address</p>
                   <p>Address line two</p>
@@ -91,7 +133,7 @@ function InvoiceDetails() {
                   <p>Country</p>
                 </div>
               </div>
-              <div className="flex justify-between items-start mb-6 ">
+              <div className="flex justify-between flex-wrap items-start mb-6 gap-3 ">
                 <div>
                   <h3 className="text-[#858bb2]  text-xs md:text-md">
                     Invoice Date
@@ -99,6 +141,14 @@ function InvoiceDetails() {
                   <p className="font-bold text-sm md:text-lg text-slate-800">
                     {invoice.date}
                   </p>
+                  <div className="mt-5">
+                    <h3 className="text-[#858bb2] text-xs md:text-md">
+                      Due Date
+                    </h3>
+                    <p className="font-bold  text-sm md:text-lg text-slate-800">
+                      {invoice.date}
+                    </p>
+                  </div>
                 </div>
                 <div>
                   <h3 className="text-[#858bb2] text-xs md:text-md">
@@ -122,12 +172,12 @@ function InvoiceDetails() {
                   </p>
                 </div>
               </div>
-              <div className="-mt-18">
+              {/* <div className="">
                 <h3 className="text-[#858bb2] text-xs md:text-md">Due Date</h3>
                 <p className="font-bold  text-sm md:text-lg text-slate-800">
                   {invoice.date}
                 </p>
-              </div>
+              </div> */}
               <div className="mt-6 rounded-tr-md rounded-tl-md  relative bg-[#f4f4f5]   shadow-none md:px-6 px-2.5 md:py-6 py-3 ">
                 <div className="flex justify-between items-center  ">
                   <p className="text-xs md:text-sm lg:text-lg text-[#858bb2]  font-semibold">
