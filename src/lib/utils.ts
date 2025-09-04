@@ -10,7 +10,7 @@ export const invoiceSchema = Yup.object().shape({
   billFrom: Yup.object().shape({
     street: Yup.string().required("Street is required"),
     city: Yup.string().required("City is required"),
-    postcode: Yup.string().required("Postcode is required"),
+    postCode: Yup.string().required("Postcode is required"),
     country: Yup.string().required("Country is required"),
   }),
   billTo: Yup.object().shape({
@@ -20,7 +20,7 @@ export const invoiceSchema = Yup.object().shape({
       .required("Client email is required"),
     street: Yup.string().required("Street is required"),
     city: Yup.string().required("City is required"),
-    postcode: Yup.string().required("Postcode is required"),
+    postCode: Yup.string().required("Postcode is required"),
     country: Yup.string().required("Country is required"),
   }),
   invoiceDate: Yup.date().nullable().required("Invoice date is required"),

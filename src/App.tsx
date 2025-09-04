@@ -7,6 +7,7 @@ import InvoiceDetails from "./pages/InvoiceDetails";
 import React from "react";
 import Layout from "./pages/Layout";
 import { HashRouter, Routes, Route } from "react-router-dom";
+import { InvoiceContextProvider } from "./context/invoiceProvider";
 
 const router = createBrowserRouter([
   {
@@ -47,23 +48,25 @@ const router = createBrowserRouter([
 function App() {
   return (
     <React.StrictMode>
-      <HashRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<HomePage />} />
-            <Route path="invoiceDetails" element={<InvoiceDetails />} />
-            <Route
-              path="*"
-              element={
-                <div>
-                  <h1>404</h1>
-                  <p>Page not found</p>
-                </div>
-              }
-            />
-          </Route>
-        </Routes>
-      </HashRouter>
+      <InvoiceContextProvider>
+        <HashRouter>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<HomePage />} />
+              <Route path="invoiceDetails" element={<InvoiceDetails />} />
+              <Route
+                path="*"
+                element={
+                  <div>
+                    <h1>404</h1>
+                    <p>Page not found</p>
+                  </div>
+                }
+              />
+            </Route>
+          </Routes>
+        </HashRouter>
+      </InvoiceContextProvider>
     </React.StrictMode>
   );
 }
